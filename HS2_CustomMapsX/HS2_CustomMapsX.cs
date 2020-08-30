@@ -13,12 +13,11 @@ namespace HS2_CustomMapsX
     {
         public const string GUID = "kky.hs2.custommapsx";
         public const string PluginName = "HS2 Custom Maps Extended";
-        public const string Version = "1.0.0";
+        public const string Version = "0.1.0";
 
         private void Awake()
         {
             Harmony.CreateAndPatchAll(typeof(HS2_CustomMapsX), nameof(HS2_CustomMapsX));
-            Logger.LogDebug("mappatch awake");
         }
 
         [HarmonyPrefix]
