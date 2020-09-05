@@ -1,10 +1,12 @@
-# HS2_CustomMapsX
- Patching for Custom HS2 H-Scene Maps
+# HS2VR_CustomMapsFix
+Patching for Custom HS2 H-Scene Maps in VR
 
-***This is a work-in-progress and does not function properly at the moment. Use at your own risk.***
+This plugin enables custom maps made for HS2 H-Scenes to work in official VR.
 
 **Downlaod:**
- - N/A
+ - Get latest version from the Release page.
 
 **Installation:**
- - N/A
+ - Extract to your game folder or put the .dll file in Bepinex\plugins.
+ 
+ *Shoutout to 2155X once again for taeching me his secret tricks.*

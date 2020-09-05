@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HS2_CustomMapsX", "HS2_CustomMapsX\HS2_CustomMapsX.csproj", "{01B29EB0-4BBF-4E1E-B90E-F209794CE64F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HS2VR_CustomMapsFix", "HS2VR_CustomMapsFix\HS2VR_CustomMapsFix.csproj", "{01B29EB0-4BBF-4E1E-B90E-F209794CE64F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
