@@ -9,4 +9,4 @@ This plugin enables custom maps made for HS2 H-Scenes to work in official VR.
 **Installation:**
  - Extract to your game folder or put the .dll file in Bepinex\plugins.
  
- *Shoutout to 2155X once again for taeching me his secret tricks.*
+ *Shoutout to 2155X once again for teaching me his secret tricks.*
