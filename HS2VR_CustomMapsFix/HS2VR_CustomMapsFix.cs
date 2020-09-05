@@ -9,7 +9,7 @@ namespace HS2VR_CustomMapsFix
     {
         public const string GUID = "kky.hs2vr.custommapsfix";
         public const string PluginName = "HS2 VR Custom Maps Fix";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
 
         private void Awake()
         {
