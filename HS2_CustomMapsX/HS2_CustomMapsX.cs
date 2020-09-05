@@ -14,7 +14,7 @@ namespace HS2_CustomMapsX
         private void Awake()
         {
             var harmony = new Harmony(nameof(HS2_CustomMapsX));
-            harmony.PatchAll(typeof(HS2_CustomMapsX));
+            //harmony.PatchAll(typeof(HS2_CustomMapsX));
 
             var iteratorType = typeof(HS2VR.VRMapSelectUI).GetNestedType("<>c", AccessTools.all);
             var iteratorMethod = AccessTools.Method(iteratorType, "<InitList>b__10_1");
