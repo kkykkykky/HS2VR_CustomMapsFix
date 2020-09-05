@@ -1,9 +1,5 @@
 ﻿using BepInEx;
 using HarmonyLib;
-using HS2;
-using Manager;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace HS2_CustomMapsX
 {
@@ -13,37 +9,24 @@ namespace HS2_CustomMapsX
     {
         public const string GUID = "kky.hs2.custommapsx";
         public const string PluginName = "HS2 Custom Maps Extended";
-        public const string Version = "0.1.0";
+        public const string Version = "0.2.0";
 
         private void Awake()
         {
-            Harmony.CreateAndPatchAll(typeof(HS2_CustomMapsX), nameof(HS2_CustomMapsX));
+            var harmony = new Harmony(nameof(HS2_CustomMapsX));
+            harmony.PatchAll(typeof(HS2_CustomMapsX));
+
+            var iteratorType = typeof(HS2VR.VRMapSelectUI).GetNestedType("<>c", AccessTools.all);
+            var iteratorMethod = AccessTools.Method(iteratorType, "<InitList>b__10_1");
+            var prefix = new HarmonyMethod(typeof(HS2_CustomMapsX), nameof(RemoveMapNoLimit_Patch));
+            harmony.Patch(iteratorMethod, prefix);
         }
 
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(HS2VR.VRMapSelectUI), "InitList")]
-        private static bool ExpendMapNoRange_Patch(LobbyMapSelectInfoScrollController ___scrollCtrl)
-        {
-            List<MapInfo.Param> lst = (from map in BaseMap.infoTable.Values
-                                       where map.Draw != -1
-                                       //where map.No < 50 //remove map.No limit.
-                                       select map).ToList<MapInfo.Param>();
-            int[] array = (from map in BaseMap.infoTable
-                           where map.Value.Draw != -1 && map.Value.Events.Contains(-1)
-                           select map.Key).ToArray<int>();
-            array = GlobalHS2Calc.ExcludeAchievementMap(array);
-            array = GlobalHS2Calc.ExcludeFursRoomAchievementMap(array);
-            ___scrollCtrl.SelectInfoClear();
-            ___scrollCtrl.Init(lst, array);
-            return false;
-        }
-        /*[HarmonyPatch(typeof(HS2VR.VRMapSelectUI), "<InitList>b__10_1")]
-        internal static bool ExpendMapNoRange_Patch(ref bool __result)
+        internal static bool RemoveMapNoLimit_Patch(ref bool __result)
         {
             __result = true;
             return false;
-        }*/
-
+        }
     }
 
 
