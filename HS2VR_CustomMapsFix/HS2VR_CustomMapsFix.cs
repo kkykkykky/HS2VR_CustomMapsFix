@@ -26,7 +26,7 @@ namespace HS2VR_CustomMapsFix
         public static void ChangeThumbManifest_Patch(LobbyMapSelectInfoScrollController.ScrollData _info)
         {
             var tnManifestS = _info.info.ThumbnailManifest_S;
-            if (tnManifestS != "" || tnManifestS != "abdata") _info.info.ThumbnailManifest_S = "abdata";
+            if (tnManifestS != "" && tnManifestS != "abdata") _info.info.ThumbnailManifest_S = "abdata";
         }
 
         internal static bool RemoveMapNoLimit_Patch(ref bool __result)
