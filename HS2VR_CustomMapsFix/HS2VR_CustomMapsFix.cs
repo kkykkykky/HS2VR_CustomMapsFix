@@ -9,7 +9,7 @@ namespace HS2VR_CustomMapsFix
     {
         public const string GUID = "kky.hs2vr.custommapsfix";
         public const string PluginName = "HS2 VR Custom Maps Fix";
-        public const string Version = "1.0.1";
+        public const string Version = "1.1.0";
 
         private void Awake()
         {
@@ -26,13 +26,20 @@ namespace HS2VR_CustomMapsFix
         public static void ChangeThumbManifest_Patch(LobbyMapSelectInfoScrollController.ScrollData _info)
         {
             var tnManifestS = _info.info.ThumbnailManifest_S;
-            if (tnManifestS != "" && tnManifestS != "abdata") _info.info.ThumbnailManifest_S = "abdata";
+            if (tnManifestS != "" && tnManifestS != "abdata" && tnManifestS != "add34" && tnManifestS != "add50")
+            {
+                _info.info.ThumbnailManifest_S = "abdata";
+            }
         }
 
         internal static bool RemoveMapNoLimit_Patch(ref bool __result)
         {
-            __result = true;
-            return false;
+            if (!Manager.GameSystem.isAdd50)
+            {
+                __result = true;
+                return false;
+            }
+            else return true;
         }
     }
 
